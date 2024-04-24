@@ -1,0 +1,20 @@
+version: '3'
+services:
+  frontend:
+    image: todo-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    image: todo-backend
+    ports:
+      - "3001:3001"
+    depends_on:
+      - database
+
+  database:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
